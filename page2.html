@@ -6,7 +6,52 @@
 		<title>Page 2</title>
 	</head>
 	<body>
-		<h1>Page 2</h1>
-		<a href="/index.html">Jump to Index</a>
+		<!-- Form -->
+		<form action="#" method="get">
+			<p>
+				Username:
+				<input
+					type="text"
+					name="username"
+					placeholder="i.e, waratt"
+					size="20"
+					maxlength="8"
+				/>
+			</p>
+			<p>
+				Password:
+				<input type="password" name="password" id="" />
+			</p>
+			<p>
+				Role:
+				<select name="role">
+					<option value="admin">Admin</option>
+					<option value="staff">Staff</option>
+					<option value="user">user</option>
+				</select>
+			</p>
+			<p>
+				Email:
+				<input type="email" name="email" />
+			</p>
+			<input type="submit" value="Submit" />
+			<fieldset>
+				<legend>Options::</legend>
+				<p>
+					Your favorite gerne:
+					<br />
+					<input type="radio" name="genre" value="pop" />
+					Pop
+					<input type="radio" name="genre" value="rock" />
+					Rock
+				</p>
+				<p>
+					Your favorite foods:<br />
+					<input type="checkbox" value="rice" name="food" />Rice
+					<input type="checkbox" value="noodle" name="food" />noodle
+				</p>
+			</fieldset>
+		</form>
+		<a href="/ex-form.html">Link to example</a>
 	</body>
 </html>
