@@ -44,7 +44,7 @@
 				font-size: 18px;
 				margin-top: 5px;
 				margin-bottom: 0;
-				font-weight: 1000;
+				font-weight: 800;
 			}
 			.subtext {
 				margin-top: 0;
@@ -55,13 +55,14 @@
 			.subtext-table {
 				margin-top: 0;
 				margin-bottom: 0;
-				font-size: 10px;
+				font-size: 8px;
 			}
 			th {
-				min-width: 50px;
+				min-width: 52px;
+				max-width: 52px;
 			}
 			tr {
-				height: 50px;
+				height: 60px;
 			}
 			table {
 				border-collapse: collapse;
@@ -70,6 +71,8 @@
 			tr,
 			table {
 				border: 1px solid black;
+				table-layout: fixed;
+				width: 100%;
 			}
 			a:active {
 				color: white;
@@ -92,6 +95,9 @@
 				border: 1px solid white;
 				border-left: 1px solid black;
 			}
+			ul {
+				list-style-type: square;
+			}
 		</style>
 	</head>
 	<body>
@@ -110,16 +116,21 @@
 						font-size: 24px;
 						margin-left: 10%;
 						margin-bottom: 10px;
-						font-weight: 1000;
+						font-weight: 800;
 					"
 				>
 					Pongsakorn Netprachak
 				</p>
-				<div style="text-align: center">
+				<div style="text-align: center; position: relative">
 					<img
 						src="https://cdn.discordapp.com/attachments/1086316907793240206/1086316981818503188/2d4ff2c62a9a664e.jpg?ex=657c7707&is=656a0207&hm=bccb42425e5c14e89750fa7e70c4be8a91c97f0c8dcd86680916fea8a30c8bfa&"
 						alt="Myself"
-						style="margin-left: auto; margin-right: auto; max-width: 120px"
+						style="
+							margin-left: auto;
+							margin-right: auto;
+							max-width: 120px;
+							position: relative;
+						"
 					/>
 				</div>
 				<div style="margin-left: 10%; margin-right: 10%; font-size: 20px">
@@ -196,7 +207,7 @@
 							<p class="subtext">Jirapat Phosoi</p>
 						</div>
 						<div style="float: left; margin-right: 20px; text-align: center">
-							<a href="https://www.facebook.com/Wichayut.WDs" target="_blank">
+							<a href="https://www.facebook.com/Wichayut.WD" target="_blank">
 								<img
 									src="https://cdn.discordapp.com/attachments/915810929332076604/1181191830495313930/IMG_2447.JPG?ex=6580299d&is=656db49d&hm=de5a58fa816be1c77266c79e94b9c2a4b348513fde4e0733bee8679dd88b1459&"
 									style="
@@ -244,17 +255,19 @@
 							<th></th>
 							<th></th>
 							<th colspan="2">
-								<p class="subtext-table">01418442-60 [10:00-12.00]</p>
+								<p class="subtext-table">01418442-60</p>
+								<p class="subtext-table">[10:00-12.00]</p>
 								<p class="subtext-table">Web Technology and Web Services</p>
 								<p class="subtext-table">ROOM: SC9-402</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
 							<th></th>
 							<th colspan="2">
-								<p class="subtext-table">01418442-60 [13:00-14.00]</p>
+								<p class="subtext-table">01418442-60</p>
+								<p class="subtext-table">[13:00-15.00]</p>
 								<p class="subtext-table">Web Technology and Web Services</p>
 								<p class="subtext-table">ROOM: SC9-402</p>
-								<p class="subtext-table">SEC: 700 Lecture</p>
+								<p class="subtext-table">SEC: 711 Laboratory</p>
 							</th>
 							<th></th>
 							<th></th>
@@ -268,9 +281,12 @@
 							<th class="header-table-left">Tue</th>
 							<th></th>
 							<th colspan="3">
-								<p class="subtext-table">01418442-60 [10:00-12.00]</p>
-								<p class="subtext-table">Web Technology and Web Services</p>
-								<p class="subtext-table">ROOM: SC9-402</p>
+								<p class="subtext-table">01418351-60</p>
+								<p class="subtext-table">[09:00-12.00]</p>
+								<p class="subtext-table">
+									Computer Communications and Cloud Computing Principles
+								</p>
+								<p class="subtext-table">ROOM: LH4-605</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
 							<th></th>
@@ -298,7 +314,8 @@
 							<th></th>
 							<th></th>
 							<th colspan="3">
-								<p class="subtext-table">01418390-60 [19:00-21.00]</p>
+								<p class="subtext-table">01418390-60</p>
+								<p class="subtext-table">[19:00-21.00]</p>
 								<p class="subtext-table">Cooperative Education Preparation</p>
 								<p class="subtext-table">ROOM: Contact Teacher</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
@@ -308,20 +325,23 @@
 							<th class="header-table-left">Thu</th>
 							<th></th>
 							<th></th>
-							<th colspan="3">
-								<p class="subtext-table">01418333-60 [10:00-12.00]</p>
+							<th colspan="2">
+								<p class="subtext-table">01418333-60</p>
+								<p class="subtext-table">[10:00-12.00]</p>
 								<p class="subtext-table">Automata Theory</p>
 								<p class="subtext-table">ROOM: LH4-605</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
 							<th colspan="2">
-								<p class="subtext-table">01418323-60 [12:00-14.00]</p>
+								<p class="subtext-table">01418323-60</p>
+								<p class="subtext-table">[12:00-14.00]</p>
 								<p class="subtext-table">Introduction to Data Science</p>
 								<p class="subtext-table">ROOM: SC9-333</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
 							<th colspan="2">
-								<p class="subtext-table">01418323-60 [14:00-16.00]</p>
+								<p class="subtext-table">01418323-60</p>
+								<p class="subtext-table">[14:00-16.00]</p>
 								<p class="subtext-table">Introduction to Data Science</p>
 								<p class="subtext-table">ROOM: SC9-333</p>
 								<p class="subtext-table">SEC: 711 Laboratory</p>
@@ -336,16 +356,18 @@
 							<th class="header-table-left">Fri</th>
 							<th></th>
 							<th></th>
-							<th colspan="3">
-								<p class="subtext-table">01418334-60 [10:00-12.00]</p>
+							<th colspan="2">
+								<p class="subtext-table">01418334-60</p>
+								<p class="subtext-table">[10:00-12.00]</p>
 								<p class="subtext-table">Compiler Techniques</p>
 								<p class="subtext-table">ROOM: LH4-605</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
 							<th></th>
 							<th colspan="3">
-								<p class="subtext-table">01418334-60 [13:00-16.00]</p>
-								<p class="subtext-table">Compiler Techniques</p>
+								<p class="subtext-table">01418332-60 -60</p>
+								<p class="subtext-table">[13:00-16.00]</p>
+								<p class="subtext-table">Information System Security</p>
 								<p class="subtext-table">ROOM: LH4-605</p>
 								<p class="subtext-table">SEC: 700 Lecture</p>
 							</th>
