@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web-Resume</title>
+		<style type="text/css">
+			* {
+				font-family: Arial, Helvetica, sans-serif;
+			}
+
+			html,
+			body,
+			.row,
+			.column {
+				height: 100%;
+			}
+			body {
+				margin: 0;
+				padding: 0;
+				border: none;
+			}
+
+			.column {
+				float: left;
+			}
+			.left-hr {
+				margin-top: 5px;
+				margin-bottom: 5px;
+				height: 2px;
+				background-color: white;
+				border: 1px solid white;
+				width: 100%;
+			}
+			.right-hr {
+				margin-top: 5px;
+				margin-bottom: 5px;
+				height: 2px;
+				background-color: black;
+				border: 1px solid black;
+				width: 100%;
+			}
+			.headingtext {
+				font-size: 18px;
+				margin-top: 5px;
+				margin-bottom: 0;
+				font-weight: 1000;
+			}
+			.subtext {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 16px;
+				font-weight: 100;
+			}
+			.subtext-table {
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 10px;
+			}
+			th {
+				min-width: 50px;
+			}
+			tr {
+				height: 50px;
+			}
+			table {
+				border-collapse: collapse;
+			}
+			th,
+			tr,
+			table {
+				border: 1px solid black;
+			}
+			a:active {
+				color: white;
+			}
+			a:visited {
+				color: white;
+			}
+			a:hover {
+				color: silver;
+			}
+			.header-table-top {
+				background-color: black;
+				color: white;
+				border: 1px solid white;
+				border-top: 1px solid black;
+			}
+			.header-table-left {
+				background-color: black;
+				color: white;
+				border: 1px solid white;
+				border-left: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<div
+				class="column"
+				style="
+					background-color: black;
+					width: 30%;
+					color: white;
+					position: fixed;
+				"
+			>
+				<p
+					style="
+						font-size: 24px;
+						margin-left: 10%;
+						margin-bottom: 10px;
+						font-weight: 1000;
+					"
+				>
+					Pongsakorn Netprachak
+				</p>
+				<div style="text-align: center">
+					<img
+						src="https://cdn.discordapp.com/attachments/1086316907793240206/1086316981818503188/2d4ff2c62a9a664e.jpg?ex=657c7707&is=656a0207&hm=bccb42425e5c14e89750fa7e70c4be8a91c97f0c8dcd86680916fea8a30c8bfa&"
+						alt="Myself"
+						style="margin-left: auto; margin-right: auto; max-width: 120px"
+					/>
+				</div>
+				<div style="margin-left: 10%; margin-right: 10%; font-size: 20px">
+					<p class="headingtext">Education</p>
+					<hr class="left-hr" />
+					<p class="subtext">Kasetsart university</p>
+					<p class="headingtext">E-mail</p>
+					<hr class="left-hr" />
+					<p class="subtext">pongsakorn.ne@ku.th</p>
+					<p class="headingtext">Github</p>
+					<hr class="left-hr" />
+					<a href="https://github.com/lsealedl" target="_blank" class="subtext">
+						Sealed
+					</a>
+					<p class="headingtext">Skill</p>
+					<hr class="left-hr" />
+					<p class="subtext">C : Intermediate</p>
+					<p class="subtext">Python : Intermediate</p>
+					<p class="subtext">Java : Intermediate</p>
+					<p class="subtext">Javascript : Beginner</p>
+					<p class="subtext">Ract native : Beginner</p>
+					<p class="headingtext">Language</p>
+					<hr class="left-hr" />
+					<p class="subtext">Thai : Native language</p>
+					<p class="subtext">English : Intermediate</p>
+				</div>
+			</div>
+
+			<div
+				class="column"
+				style="background-color: white; width: 70%; margin-left: 30%"
+			>
+				<div
+					style="
+						margin-left: 5%;
+						margin-right: 5%;
+						margin-top: 2.5%;
+						font-size: 20px;
+					"
+				>
+					<p class="headingtext">Likes</p>
+					<hr class="right-hr" />
+					<ul class="subtext">
+						<li class="subtext">Novel</li>
+						<li class="subtext">Manga</li>
+						<li class="subtext">Anime</li>
+						<li class="subtext">Vtuber</li>
+						<li class="subtext">Programing</li>
+					</ul>
+					<p class="headingtext">Dislikes</p>
+					<hr class="right-hr" />
+					<ul class="subtext">
+						<li>Matlab</li>
+						<li>Sweet foods</li>
+						<li>Spicy foods</li>
+						<li>Vegetable</li>
+						<li>Unnecessary work</li>
+					</ul>
+					<p class="headingtext">List of your best friends</p>
+					<hr class="right-hr" />
+					<div>
+						<div style="float: left; margin-right: 20px; text-align: center">
+							<a href="https://www.facebook.com/amsomeboys" target="_blank">
+								<img
+									src="https://cdn.discordapp.com/attachments/1086316907793240206/1087652052424990750/IMG_4174.jpg?ex=657817e8&is=6565a2e8&hm=9064581d7d1b2aad4fc221b93a5885b3867698e84f895403861a64b7b3dd0795&"
+									style="
+										margin-left: auto;
+										margin-right: auto;
+										max-width: 120px;
+										max-width: 120px;
+									"
+								/>
+							</a>
+							<p class="subtext">Jirapat Phosoi</p>
+						</div>
+						<div style="float: left; margin-right: 20px; text-align: center">
+							<a href="https://www.facebook.com/Wichayut.WDs" target="_blank">
+								<img
+									src="https://cdn.discordapp.com/attachments/915810929332076604/1181191830495313930/IMG_2447.JPG?ex=6580299d&is=656db49d&hm=de5a58fa816be1c77266c79e94b9c2a4b348513fde4e0733bee8679dd88b1459&"
+									style="
+										margin-left: auto;
+										margin-right: auto;
+										max-width: 120px;
+										max-width: 100px;
+									"
+								/>
+							</a>
+							<p class="subtext">Wichayut Burong</p>
+						</div>
+						<div><br /><br /><br /><br /><br /><br /><br /><br /></div>
+					</div>
+
+					<p class="headingtext">Classroom timetable</p>
+					<hr class="right-hr" />
+					<table style="font-size: 10px">
+						<tr>
+							<th class="header-table-top" style="border-left: 1px solid black">
+								Day/Time
+							</th>
+							<th class="header-table-top">8:00</th>
+							<th class="header-table-top">9:00</th>
+							<th class="header-table-top">10:00</th>
+							<th class="header-table-top">11:00</th>
+							<th class="header-table-top">12:00</th>
+							<th class="header-table-top">13:00</th>
+							<th class="header-table-top">14:00</th>
+							<th class="header-table-top">15:00</th>
+							<th class="header-table-top">16:00</th>
+							<th class="header-table-top">17:00</th>
+							<th class="header-table-top">18:00</th>
+							<th class="header-table-top">19:00</th>
+							<th class="header-table-top">20:00</th>
+							<th
+								class="header-table-top"
+								style="border-right: 1px solid black"
+							>
+								21:00
+							</th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Mon</th>
+							<th></th>
+							<th></th>
+							<th colspan="2">
+								<p class="subtext-table">01418442-60 [10:00-12.00]</p>
+								<p class="subtext-table">Web Technology and Web Services</p>
+								<p class="subtext-table">ROOM: SC9-402</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th></th>
+							<th colspan="2">
+								<p class="subtext-table">01418442-60 [13:00-14.00]</p>
+								<p class="subtext-table">Web Technology and Web Services</p>
+								<p class="subtext-table">ROOM: SC9-402</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Tue</th>
+							<th></th>
+							<th colspan="3">
+								<p class="subtext-table">01418442-60 [10:00-12.00]</p>
+								<p class="subtext-table">Web Technology and Web Services</p>
+								<p class="subtext-table">ROOM: SC9-402</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Wed</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th colspan="3">
+								<p class="subtext-table">01418390-60 [19:00-21.00]</p>
+								<p class="subtext-table">Cooperative Education Preparation</p>
+								<p class="subtext-table">ROOM: Contact Teacher</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Thu</th>
+							<th></th>
+							<th></th>
+							<th colspan="3">
+								<p class="subtext-table">01418333-60 [10:00-12.00]</p>
+								<p class="subtext-table">Automata Theory</p>
+								<p class="subtext-table">ROOM: LH4-605</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th colspan="2">
+								<p class="subtext-table">01418323-60 [12:00-14.00]</p>
+								<p class="subtext-table">Introduction to Data Science</p>
+								<p class="subtext-table">ROOM: SC9-333</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th colspan="2">
+								<p class="subtext-table">01418323-60 [14:00-16.00]</p>
+								<p class="subtext-table">Introduction to Data Science</p>
+								<p class="subtext-table">ROOM: SC9-333</p>
+								<p class="subtext-table">SEC: 711 Laboratory</p>
+							</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Fri</th>
+							<th></th>
+							<th></th>
+							<th colspan="3">
+								<p class="subtext-table">01418334-60 [10:00-12.00]</p>
+								<p class="subtext-table">Compiler Techniques</p>
+								<p class="subtext-table">ROOM: LH4-605</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th></th>
+							<th colspan="3">
+								<p class="subtext-table">01418334-60 [13:00-16.00]</p>
+								<p class="subtext-table">Compiler Techniques</p>
+								<p class="subtext-table">ROOM: LH4-605</p>
+								<p class="subtext-table">SEC: 700 Lecture</p>
+							</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th class="header-table-left">Sat</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr>
+							<th
+								class="header-table-left"
+								style="border-bottom: 1px solid black"
+							>
+								Sun
+							</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+					</table>
+					<br />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
