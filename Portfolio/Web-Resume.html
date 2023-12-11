@@ -74,14 +74,13 @@
 				table-layout: fixed;
 				width: 100%;
 			}
-			a:active {
+
+			.left-link:active,
+			.left-link:visited {
 				color: white;
 			}
-			a:visited {
-				color: white;
-			}
-			a:hover {
-				color: silver;
+			.left-link:hover {
+				color: #aaaaaa;
 			}
 			.header-table-top {
 				background-color: black;
@@ -97,6 +96,29 @@
 			}
 			ul {
 				list-style-type: square;
+			}
+			.right-link:active,
+			.right-link:visited {
+				color: black;
+			}
+			.right-link:hover {
+				color: #555555;
+			}
+			.right-link:hover .right-image {
+				outline: 1px solid white;
+				outline-offset: -6px;
+			}
+			.left-image {
+				transition: 0.4s ease-in-out;
+			}
+			.left-image:hover {
+				transform: scale(1.075);
+				object-fit: cover;
+			}
+			.image-container {
+				overflow: hidden;
+				width: 120px;
+				height: 150px;
 			}
 		</style>
 	</head>
@@ -121,17 +143,22 @@
 				>
 					Pongsakorn Netprachak
 				</p>
-				<div style="text-align: center; position: relative">
-					<img
-						src="https://cdn.discordapp.com/attachments/1086316907793240206/1086316981818503188/2d4ff2c62a9a664e.jpg?ex=657c7707&is=656a0207&hm=bccb42425e5c14e89750fa7e70c4be8a91c97f0c8dcd86680916fea8a30c8bfa&"
-						alt="Myself"
-						style="
-							margin-left: auto;
-							margin-right: auto;
-							max-width: 120px;
-							position: relative;
-						"
-					/>
+				<div
+					style="display: flex; justify-content: center; align-items: center"
+				>
+					<div class="image-container">
+						<img
+							class="left-image"
+							src="https://cdn.discordapp.com/attachments/1086316907793240206/1086316981818503188/2d4ff2c62a9a664e.jpg?ex=657c7707&is=656a0207&hm=bccb42425e5c14e89750fa7e70c4be8a91c97f0c8dcd86680916fea8a30c8bfa&"
+							alt="Myself"
+							style="
+								margin-left: auto;
+								margin-right: auto;
+								max-width: 120px;
+								position: relative;
+							"
+						/>
+					</div>
 				</div>
 				<div style="margin-left: 10%; margin-right: 10%; font-size: 20px">
 					<p class="headingtext">Education</p>
@@ -142,7 +169,11 @@
 					<p class="subtext">pongsakorn.ne@ku.th</p>
 					<p class="headingtext">Github</p>
 					<hr class="left-hr" />
-					<a href="https://github.com/lsealedl" target="_blank" class="subtext">
+					<a
+						class="left-link subtext"
+						href="https://github.com/lsealedl"
+						target="_blank"
+					>
 						Sealed
 					</a>
 					<p class="headingtext">Skill</p>
@@ -193,22 +224,31 @@
 					<hr class="right-hr" />
 					<div>
 						<div style="float: left; margin-right: 20px; text-align: center">
-							<a href="https://www.facebook.com/amsomeboys" target="_blank">
+							<a
+								class="right-link"
+								href="https://www.facebook.com/amsomeboys"
+								target="_blank"
+							>
 								<img
+									class="right-image"
 									src="https://cdn.discordapp.com/attachments/1086316907793240206/1087652052424990750/IMG_4174.jpg?ex=657817e8&is=6565a2e8&hm=9064581d7d1b2aad4fc221b93a5885b3867698e84f895403861a64b7b3dd0795&"
 									style="
 										margin-left: auto;
 										margin-right: auto;
 										max-width: 120px;
-										max-width: 120px;
 									"
 								/>
+								<p class="subtext">Jirapat Phosoi</p>
 							</a>
-							<p class="subtext">Jirapat Phosoi</p>
 						</div>
 						<div style="float: left; margin-right: 20px; text-align: center">
-							<a href="https://www.facebook.com/Wichayut.WD" target="_blank">
+							<a
+								class="right-link"
+								href="https://www.facebook.com/Wichayut.WD"
+								target="_blank"
+							>
 								<img
+									class="right-image"
 									src="https://cdn.discordapp.com/attachments/915810929332076604/1181191830495313930/IMG_2447.JPG?ex=6580299d&is=656db49d&hm=de5a58fa816be1c77266c79e94b9c2a4b348513fde4e0733bee8679dd88b1459&"
 									style="
 										margin-left: auto;
@@ -217,8 +257,8 @@
 										max-width: 100px;
 									"
 								/>
+								<p class="subtext">Wichayut Burong</p>
 							</a>
-							<p class="subtext">Wichayut Burong</p>
 						</div>
 						<div><br /><br /><br /><br /><br /><br /><br /><br /></div>
 					</div>
@@ -242,12 +282,11 @@
 							<th class="header-table-top">17:00</th>
 							<th class="header-table-top">18:00</th>
 							<th class="header-table-top">19:00</th>
-							<th class="header-table-top">20:00</th>
 							<th
 								class="header-table-top"
 								style="border-right: 1px solid black"
 							>
-								21:00
+								20:00
 							</th>
 						</tr>
 						<tr>
@@ -269,7 +308,6 @@
 								<p class="subtext-table">ROOM: SC9-402</p>
 								<p class="subtext-table">SEC: 711 Laboratory</p>
 							</th>
-							<th></th>
 							<th></th>
 							<th></th>
 							<th></th>
@@ -298,7 +336,6 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							<th></th>
 						</tr>
 						<tr>
 							<th class="header-table-left">Wed</th>
@@ -313,7 +350,7 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							<th colspan="3">
+							<th colspan="2">
 								<p class="subtext-table">01418390-60</p>
 								<p class="subtext-table">[19:00-21.00]</p>
 								<p class="subtext-table">Cooperative Education Preparation</p>
@@ -392,7 +429,6 @@
 							<th></th>
 							<th></th>
 							<th></th>
-							<th></th>
 						</tr>
 						<tr>
 							<th
@@ -401,7 +437,6 @@
 							>
 								Sun
 							</th>
-							<th></th>
 							<th></th>
 							<th></th>
 							<th></th>
