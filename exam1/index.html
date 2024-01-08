@@ -14,15 +14,22 @@
 			</header>
 			<div class="game">
 				<div class="game-info">
-					<div class="secret"></div>
+					<div class="secret">?</div>
 				</div>
 				<main>
 					<section class="left">
-						<input type="number" placeholder="ทายได้ 1 - 21" class="guess" />
+						<input
+							type="number"
+							placeholder="ทายได้ 1 - 21"
+							class="guess"
+							max="21"
+							min="1"
+						/>
 						<button class="btn check">เอาเลขนี้แหละ</button>
+						<button class="restratBtn">เริ่มเกมใหม่</button>
 					</section>
 					<section class="right">
-						<p class="message">เอ้า!! ท้ายมา</p>
+						<p class="message">เอ้า!! ทายมา</p>
 						<p class="label-scope">💯คะแนน: <span class="score">10</span></p>
 						<p class="label-highscore">
 							🎊คะแนนสูงสุด: <span class="highscore"> 0 </span>
