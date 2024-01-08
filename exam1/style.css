@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200&display=swap");
+
+body {
+	font-family: "Kanit", sans-serif;
+	background-color: gray;
+}
+
+.container {
+}
+
+header {
+	background-color: blue;
+	color: white;
+}
+.game {
+	background-color: white;
+}
