@@ -65,6 +65,15 @@ h2 {
 .frmDiv.error small {
 	visibility: visible;
 }
+
+.frmDiv.error input {
+	border-color: red;
+}
+
+.frmDiv.success input {
+	border-color: green;
+}
+
 .myForm button {
 	cursor: pointer;
 	background-color: steelblue;

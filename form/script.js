@@ -20,6 +20,8 @@ function checkPassword(password, confirm) {
 	if (password.value !== confirm.value) {
 		showErrMessage("รหัสผ่านไม่ตรงกัน", confirm);
 	} else {
+		showSuccessBorder(password);
+		showSuccessBorder(confirm);
 	}
 }
 
@@ -28,6 +30,11 @@ const showErrMessage = (message, input) => {
 	formControl.className = "frmDiv error";
 	const small = formControl.querySelector("small");
 	small.innerText = message;
+};
+
+const showSuccessBorder = (input) => {
+	const formControl = input.parentElement;
+	formControl.className = "frmDiv success";
 };
 
 const checkUserName = (min, max) => {
@@ -41,5 +48,7 @@ const checkUserName = (min, max) => {
 			"ชื่อผู้ใช้ต้องน้อยกว่าหรือเท่ากับ " + max + " ตัวอักษร",
 			username
 		);
+	} else {
+		showSuccessBorder(username);
 	}
 };
