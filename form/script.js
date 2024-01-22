@@ -5,23 +5,41 @@
 
 const form = document.getElementById("myForm");
 
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const confirm = document.getElementById("confirm");
+
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
-	const username = document.getElementById("username");
-	const password = document.getElementById("password");
-	const confirm = document.getElementById("confirm");
+
 	checkPassword(password, confirm);
+	checkUserName(6, 10);
 });
 
 function checkPassword(password, confirm) {
 	if (password.value !== confirm.value) {
-		const formControl = confirm.parentElement;
-		const small = formControl.querySelector("small");
-		small.innerText = "รหัสผ่านไม่ตรงกัน";
-		// alert("รหัสผ่านไม่ตรงกัน");
-		formControl.className = "frmDiv error";
+		showErrMessage("รหัสผ่านไม่ตรงกัน", confirm);
 	} else {
-		alert("ตรงกัน");
-		formControl.className = "frmDiv";
 	}
 }
+
+const showErrMessage = (message, input) => {
+	const formControl = input.parentElement;
+	formControl.className = "frmDiv error";
+	const small = formControl.querySelector("small");
+	small.innerText = message;
+};
+
+const checkUserName = (min, max) => {
+	if (username.value.length < min) {
+		showErrMessage(
+			"ชื่อผู้ใช้ต้องมากกว่าหรือเท่ากับ " + min + " ตัวอักษร",
+			username
+		);
+	} else if (username.value.length > max) {
+		showErrMessage(
+			"ชื่อผู้ใช้ต้องน้อยกว่าหรือเท่ากับ " + max + " ตัวอักษร",
+			username
+		);
+	}
+};
