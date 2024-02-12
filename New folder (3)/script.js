@@ -12,9 +12,14 @@ const getCountry = function (country) {
 		const [data] = JSON.parse(this.responseText);
 		const lang = Object.entries(data.languages);
 		const currency = Object.entries(data.currencies);
-		console.log(lang);
+		console.log(data.borders);
 		let allLang = "";
-
+		let borders = "";
+		if (data.borders == null) {
+			borders = "-";
+		} else {
+			borders = data.borders;
+		}
 		for (let i = 0; i < lang.length; i++) {
 			if (i == lang.length - 1) {
 				allLang = allLang + lang[i][1];
@@ -31,6 +36,9 @@ const getCountry = function (country) {
                 <h4 class="country_region">${data.region}</h4>
                 <p class="country_row"><span>🗣️</span>${allLang}</p>
                 <p class="country_row"><span>💰</span>${currency[0][1].name} (${currency[0][1].symbol})</p>
+                <p class="country_row"><span>Population</span>${data.population}</p>
+                <p class="country_row"><span>Border</span>${borders}</p>
+                <p class="country_row"><span>Capital</span>${data.capital}</p>
             </div>
         </article>`;
 		countries.insertAdjacentHTML("beforeend", html);
