@@ -18,7 +18,13 @@ body {
 }
 .container {
 	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+.countries {
+	display: flex;
 	font-size: 2rem;
+	/* opacity: 0; */
 	transition: opacity 1s;
 }
 .country {
