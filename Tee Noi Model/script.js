@@ -1,65 +1,40 @@
-// Function to get food by first letter and return a Promise
-const getFoodByFirstLetter = function (firstLetter) {
-	return new Promise((resolve, reject) => {
-		const req = new XMLHttpRequest();
-		req.open(
-			"GET",
-			`https://www.themealdb.com/api/json/v1/1/search.php?f=${firstLetter}`
-		);
-		req.send();
-		req.addEventListener("load", function () {
-			if (req.status == 200) {
-				const data = JSON.parse(this.responseText);
-				resolve(data);
-			} else {
-				reject("ERROR : " + req.status);
-			}
-		});
+document.addEventListener("DOMContentLoaded", function () {
+	getFoodByFirstLetter("f", 3, 80, 0);
+	getFoodByFirstLetter("f", 4, 120, 1);
+	getFoodByFirstLetter("b", 2, 100, 2);
+	getFoodByFirstLetter("b", 28, 60, 3);
+	getFoodByFirstLetter("c", 4, 100, 4);
+	getFoodByFirstLetter("k", 6, 90, 5);
+	loadOrder();
+});
+
+const getFoodByFirstLetter = function (
+	firstLetter,
+	idMeal,
+	menuPrice,
+	menuOrder
+) {
+	const req = new XMLHttpRequest();
+	req.open(
+		"GET",
+		`https://www.themealdb.com/api/json/v1/1/search.php?f=${firstLetter}`
+	);
+	req.send();
+
+	req.addEventListener("load", function () {
+		const data = JSON.parse(this.responseText);
+		if (idMeal == -1) {
+			console.log(data);
+		} else {
+			addMenu(
+				data.meals[idMeal].strMeal,
+				menuPrice,
+				data.meals[idMeal].strMealThumb,
+				menuOrder
+			);
+		}
 	});
 };
-
-// Array to store the data
-const dataArray = [];
-
-// Example usage with Promise and storing data in an array
-getFoodByFirstLetter("A")
-	.then((data) => {
-		// Push the resolved data into the array
-		dataArray.push(data);
-		console.log(dataArray); // Array now contains the data
-		console.log(dataArray[0]); // Should print the first element in the array
-	})
-	.catch((error) => {
-		console.error(error);
-	});
-
-const menu = [
-	{
-		name: "a",
-		price: 120,
-		img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-	},
-	{
-		name: "หมูกรอบน้ำแดง",
-		price: 120,
-		img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-	},
-	{
-		name: "ปีกไก่ทอดเกลือ",
-		price: 90,
-		img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-	},
-	{
-		name: "ปีกไก่ทอดสมุนไพร",
-		price: 90,
-		img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-	},
-	{
-		name: "เอ็นข้อไก่ทอด",
-		price: 80,
-		img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg/1024px-Good_Food_Display_-_NCI_Visuals_Online.jpg",
-	},
-];
 
 let keyId = 0;
 
@@ -74,11 +49,6 @@ if (localStorage.length > 0) {
 	console.log(keyId);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	loadMenu();
-	loadOrder();
-});
-
 function saveData() {
 	const key = document.getElementById("inputKey").value;
 	const value = document.getElementById("inputValue").value;
@@ -88,96 +58,91 @@ function saveData() {
 	loadOrder();
 }
 
-function loadMenu() {
+function addMenu(menuName, menuPrice, menyImage, menuOrder) {
+	let i = menuOrder;
 	const container = document.getElementById("menu");
-	container.innerHTML = "";
 	const table = document.createElement("table");
-	const tablebody = document.createElement("tbody");
-
-	for (let i = 0; i < menu.length; i++) {
-		let tableTr = [];
-		for (var j = 0; j < 4; j++) {
-			tableTr[j] = document.createElement("tr");
-		}
-
-		let tableTd = [];
-		for (var rowIndex = 0; rowIndex < 3; rowIndex++) {
-			tableTd[rowIndex] = [];
-			for (var columnIndex = 0; columnIndex < 4; columnIndex++) {
-				tableTd[rowIndex][columnIndex] = document.createElement("td");
-			}
-		}
-
-		const image = document.createElement("img");
-		image.src = menu[i].img;
-		tableTd[0][0].style = "text-align:center";
-		tableTd[0][0].appendChild(image);
-		tableTd[0][0].rowSpan = 2;
-		tableTd[0][0].colSpan = 2;
-
-		tableTd[2][0].textContent = ` ${menu[i].name}`;
-		tableTd[2][1].textContent = ` ราคา : ${menu[i].price}`;
-
-		const increaseBtn = document.createElement("button");
-		increaseBtn.style.height = "40px";
-		increaseBtn.style.width = "40px";
-		increaseBtn.textContent = "+";
-		increaseBtn.onclick = function () {
-			const tmp = document.getElementsByClassName("menuCount" + i)[0];
-			tmp.textContent = parseInt(tmp.textContent) + 1;
-		};
-
-		tableTd[0][2].style = "text-align:center;";
-		tableTd[0][2].appendChild(increaseBtn);
-
-		tableTd[1][2].textContent = 1;
-		tableTd[1][2].className = "menuCount" + i;
-		tableTd[1][2].style = "text-align:center";
-
-		const decreaseBtn = document.createElement("button");
-		decreaseBtn.style.height = "40px";
-		decreaseBtn.style.width = "40px";
-		decreaseBtn.textContent = "-";
-		decreaseBtn.onclick = function () {
-			const tmp = document.getElementsByClassName("menuCount" + i)[0];
-			if (parseInt(tmp.textContent) > 1) {
-				tmp.textContent = parseInt(tmp.textContent) - 1;
-			}
-		};
-		tableTd[2][2].style = "text-align:center";
-		tableTd[2][2].appendChild(decreaseBtn);
-
-		const buyBtn = document.createElement("button");
-		buyBtn.className = "BuyBtn";
-		buyBtn.textContent = "Add";
-
-		buyBtn.onclick = function () {
-			const tmp = document.getElementsByClassName("menuCount" + i)[0]
-				.textContent;
-			let value = [menu[i].name, menu[i].price, tmp];
-			localStorage.setItem(keyId, JSON.stringify(value));
-			keyId++;
-			loadOrder();
-		};
-
-		tableTd[0][3].appendChild(buyBtn);
-		tableTd[0][3].rowSpan = 3;
-		tableTd[0][3].style.height = "150px";
-
-		tableTr[0].appendChild(tableTd[0][0]);
-		tableTr[0].appendChild(tableTd[0][2]);
-		tableTr[0].appendChild(tableTd[0][3]);
-		tableTr[1].appendChild(tableTd[1][2]);
-		tableTr[2].appendChild(tableTd[2][0]);
-		tableTr[2].appendChild(tableTd[2][1]);
-		tableTr[2].appendChild(tableTd[2][2]);
-
-		tablebody.appendChild(tableTr[0]);
-		tablebody.appendChild(tableTr[1]);
-		tablebody.appendChild(tableTr[2]);
-		table.appendChild(tablebody);
+	const tablebody = document.getElementById("tbodyMenu");
+	// console.log(tablebody);
+	let tableTr = [];
+	for (var j = 0; j < 4; j++) {
+		tableTr[j] = document.createElement("tr");
 	}
-	container.appendChild(table);
+
+	let tableTd = [];
+	for (var rowIndex = 0; rowIndex < 3; rowIndex++) {
+		tableTd[rowIndex] = [];
+		for (var columnIndex = 0; columnIndex < 4; columnIndex++) {
+			tableTd[rowIndex][columnIndex] = document.createElement("td");
+		}
+	}
+
+	const image = document.createElement("img");
+	image.src = menyImage;
+	tableTd[0][0].style = "text-align:center";
+	tableTd[0][0].appendChild(image);
+	tableTd[0][0].rowSpan = 2;
+	tableTd[0][0].colSpan = 2;
+
+	tableTd[2][0].textContent = ` ${menuName}`;
+	tableTd[2][1].textContent = ` ราคา : ${menuPrice}`;
+
+	const increaseBtn = document.createElement("button");
+	increaseBtn.style.height = "40px";
+	increaseBtn.style.width = "40px";
+	increaseBtn.textContent = "+";
+	increaseBtn.onclick = function () {
+		const tmp = document.getElementsByClassName("menuCount" + i)[0];
+		tmp.textContent = parseInt(tmp.textContent) + 1;
+	};
+
+	tableTd[0][2].style = "text-align:center;";
+	tableTd[0][2].appendChild(increaseBtn);
+
+	tableTd[1][2].textContent = 1;
+	tableTd[1][2].className = "menuCount" + i;
+	tableTd[1][2].style = "text-align:center";
+
+	const decreaseBtn = document.createElement("button");
+	decreaseBtn.style.height = "40px";
+	decreaseBtn.style.width = "40px";
+	decreaseBtn.textContent = "-";
+	decreaseBtn.onclick = function () {
+		const tmp = document.getElementsByClassName("menuCount" + i)[0];
+		if (parseInt(tmp.textContent) > 1) {
+			tmp.textContent = parseInt(tmp.textContent) - 1;
+		}
+	};
+	tableTd[2][2].style = "text-align:center";
+	tableTd[2][2].appendChild(decreaseBtn);
+
+	const buyBtn = document.createElement("button");
+	buyBtn.className = "BuyBtn";
+	buyBtn.textContent = "Add";
+
+	buyBtn.onclick = function () {
+		const tmp = document.getElementsByClassName("menuCount" + i)[0].textContent;
+		let value = [menuName, menuPrice, tmp];
+		localStorage.setItem(keyId, JSON.stringify(value));
+		keyId++;
+		loadOrder();
+	};
+
+	tableTd[0][3].appendChild(buyBtn);
+	tableTd[0][3].rowSpan = 3;
+	tableTd[0][3].style.height = "150px";
+
+	tableTr[0].appendChild(tableTd[0][0]);
+	tableTr[0].appendChild(tableTd[0][2]);
+	tableTr[0].appendChild(tableTd[0][3]);
+	tableTr[1].appendChild(tableTd[1][2]);
+	tableTr[2].appendChild(tableTd[2][0]);
+	tableTr[2].appendChild(tableTd[2][1]);
+	tableTr[2].appendChild(tableTd[2][2]);
+
+	tablebody.appendChild(tableTr[0]);
+	tablebody.appendChild(tableTr[1]);
+	tablebody.appendChild(tableTr[2]);
 }
 
 function loadOrder() {
