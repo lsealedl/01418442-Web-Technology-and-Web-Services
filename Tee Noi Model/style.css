@@ -1,21 +1,64 @@
 body {
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: "Arial", Helvetica, sans-serif;
 	margin: 20px;
+	background-color: #f7f7f7;
 }
+
 input,
 button {
 	margin: 10px;
 	padding: 10px;
 }
+
 #data {
 	margin-top: 20px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 img {
 	width: 120px;
+	border-radius: 8px;
 }
-.BuyBtn {
+
+.BuyBtn,
+.RemoveBtn {
 	height: 100%;
+	background-color: #2196f3;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 100px;
 }
+
+.BuyBtn:hover,
+.RemoveBtn:hover {
+	background-color: #0b7dda;
+}
+
 td {
-	/* border: 1px black solid; */
+	height: 62px;
 }
+
+#menu table,
+#order table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+#menu tbody,
+#order tbody {
+	border: 1px solid #ddd;
+}
+
+#menu tr:nth-child(3n),
+#order tr:nth-child(3n) {
+	border-bottom: 1px solid #ddd;
+}
+
+/* Add more styles as needed */

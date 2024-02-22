@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	getFoodByFirstLetter("b", 28, 60, 3);
 	getFoodByFirstLetter("c", 4, 100, 4);
 	getFoodByFirstLetter("k", 6, 90, 5);
+	getFoodByFirstLetter("i", 0, 100, 6);
+	getFoodByFirstLetter("t", 17, 150, 7);
 	loadOrder();
 });
 
@@ -85,6 +87,7 @@ function addMenu(menuName, menuPrice, menyImage, menuOrder) {
 	tableTd[0][0].colSpan = 2;
 
 	tableTd[2][0].textContent = ` ${menuName}`;
+	tableTd[2][0].style = "padding-left: 20px;";
 	tableTd[2][1].textContent = ` ราคา : ${menuPrice}`;
 
 	const increaseBtn = document.createElement("button");
@@ -188,7 +191,9 @@ function loadOrder() {
 			loadOrder();
 		};
 		tableTd[0][3].appendChild(increaseBtn);
+		tableTd[0][3].style = "text-align:center";
 		tableTd[1][0].textContent = `${value[0]}`;
+		tableTd[1][0].style = "padding-left: 20px;";
 		tableTd[1][1].textContent = `ราคา : ${value[1]}`;
 		tableTd[1][2].style = "text-align:center";
 		tableTd[1][2].textContent = `x`;
@@ -207,8 +212,10 @@ function loadOrder() {
 				loadOrder();
 			}
 		};
+		tableTd[2][3].style = "text-align:center";
 		tableTd[2][3].appendChild(decreaseBtn);
 		const removeButton = document.createElement("button");
+		removeButton.className = "RemoveBtn";
 		removeButton.textContent = "Remove";
 		removeButton.onclick = function () {
 			localStorage.removeItem(key);
