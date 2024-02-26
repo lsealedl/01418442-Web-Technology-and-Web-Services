@@ -27,9 +27,9 @@ function LoadMenuItems() {
 					);
 
 					if (existingOrderIndex == -1) {
-						orders[existingOrderIndex].quantity += 1;
-					} else {
 						orders.push({ name: item.name, price: item.price, quantity: 1 });
+					} else {
+						orders[existingOrderIndex].quantity += 1;
 					}
 					console.log(orders);
 
