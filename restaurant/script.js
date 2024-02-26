@@ -22,7 +22,18 @@ function LoadMenuItems() {
 
 				menuItemElement.addEventListener("click", function () {
 					let orders = JSON.parse(localStorage.getItem("customerOrders")) || [];
+					const existingOrderIndex = orders.findIndex(
+						(order) => order.name === item.name
+					);
+
+					if (existingOrderIndex == -1) {
+						orders[existingOrderIndex].quantity += 1;
+					} else {
+						orders.push({ name: item.name, price: item.price, quantity: 1 });
+					}
 					console.log(orders);
+
+					localStorage.setItem("customerOrders", JSON.stringify(orders));
 				});
 			});
 		});
